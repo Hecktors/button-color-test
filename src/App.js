@@ -1,9 +1,14 @@
 import './App.css';
 import { useState } from 'react';
 
+export function replaceCamelWichSpaces(colorName) {
+  return colorName.replace(/\B([A-Z])\B/g, ' $1')
+ 
+}
+
 function App() {
   const [buttonColor, setButtonColor] = useState('red')
-  const newColor = buttonColor === 'red' ? 'blue' : 'red'
+  let newColor = buttonColor === 'red' ? 'blue' : 'red'
   const [isDisabled, setIsDisabled] = useState(false)
   
   function handleClick(){
@@ -13,6 +18,7 @@ function App() {
   function handleChange(e){
     const checked = e.target.checked
     setIsDisabled(e.target.checked)
+    setButtonColor(checked ? 'gray' : newColor)
   }
 
   return (
