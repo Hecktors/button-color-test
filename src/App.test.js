@@ -4,22 +4,22 @@ import { replaceCamelWichSpaces } from './App'
 
 test('button has correct initual color', () => {
   render(<App />)
-  const colorButton = screen.getByRole('button', { name: 'Change to blue' })
-  expect(colorButton).toHaveStyle({ backgroundColor: 'red' })
+  const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' })
+  expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' })
 });
 
-test('button turns blue when clicked', () => {
+test('button turns MidnightBlue when clicked', () => {
   render(<App />) 
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+  const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'})
   fireEvent.click(colorButton)
 
-  expect(colorButton).toHaveStyle({ backgroundColor: 'blue' })
-  expect(colorButton).toHaveTextContent('Change to red')
+  expect(colorButton).toHaveStyle({ backgroundColor: 'MidnightBlue' })
+  expect(colorButton).toHaveTextContent('Change to Medium Violet Red')
 });
 
 test('button starts out enabled', () => {
   render(<App/>)
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+  const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'})
   expect(colorButton).toBeEnabled()
 })
 
@@ -32,7 +32,7 @@ test('checkbox is unchecked', () => {
 test('checkbox is unchecked, disable button and enable with the second click', () => {
   render(<App/>)
   const checkbox = screen.getByRole('checkbox', {name: 'Disable button'})
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+  const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'})
 
   fireEvent.click(checkbox)
   expect(colorButton).not.toBeEnabled()
@@ -41,25 +41,25 @@ test('checkbox is unchecked, disable button and enable with the second click', (
   expect(colorButton).toBeEnabled()
 })
 
-test('button color is gray when disabled, red when enabled', () => {
+test('button color is gray when disabled, MediumVioletRed when enabled', () => {
   render(<App/>)
   const checkbox = screen.getByRole('checkbox', {name: 'Disable button'})
-  const colorButton = screen.getByRole('button', {name:'Change to blue'})
+  const colorButton = screen.getByRole('button', {name:'Change to Midnight Blue'})
 
   fireEvent.click(checkbox)
   expect(colorButton).toHaveStyle('background-color: gray')
 
   fireEvent.click(checkbox)
-  expect(colorButton).toHaveStyle('background-color: red')
+  expect(colorButton).toHaveStyle('background-color: MediumVioletRed')
 })
 
-test('button color change with click to blue, when disable to gray', () => {
+test('button color change with click to MidnightBlue, when disable to gray', () => {
   render(<App/>)
   const checkbox = screen.getByRole('checkbox', {name: 'Disable button'})
-  const colorButton = screen.getByRole('button', {name: 'Change to blue'})
+  const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'})
 
   fireEvent.click(colorButton)
-  expect(colorButton).toHaveStyle('background-color: blue')
+  expect(colorButton).toHaveStyle('background-color: MidnightBlue')
 
   fireEvent.click(checkbox)
   expect(colorButton).toHaveStyle('background-color: gray')
@@ -67,7 +67,7 @@ test('button color change with click to blue, when disable to gray', () => {
 
 describe('spaces before camel-case capital letters', () => {
   test('works for no inner capital letters', () => {
-    expect(replaceCamelWichSpaces('Red')).toBe('Red')
+    expect(replaceCamelWichSpaces('MediumVioletRed')).toBe('Medium Violet Red')
   })
 
   test('works for one inner capital letter', () => {

@@ -7,8 +7,8 @@ export function replaceCamelWichSpaces(colorName) {
 }
 
 function App() {
-  const [buttonColor, setButtonColor] = useState('red')
-  let newColor = buttonColor === 'red' ? 'blue' : 'red'
+  const [buttonColor, setButtonColor] = useState('MediumVioletRed')
+  let newColor = buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed'
   const [isDisabled, setIsDisabled] = useState(false)
   
   function handleClick(){
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div >
-      <button onClick={handleClick} disabled={isDisabled} style={{backgroundColor: buttonColor}}>Change to {newColor}</button>
+      <button onClick={handleClick} disabled={isDisabled} style={{backgroundColor: buttonColor}}>Change to {replaceCamelWichSpaces(newColor)}</button>
       <input onChange={handleChange} type="checkbox" id="disable-button-checkbox"/>
       <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
