@@ -35,7 +35,7 @@ test('checkbox is unchecked, disable button and enable with the second click', (
   const colorButton = screen.getByRole('button', {name: 'Change to Midnight Blue'})
 
   fireEvent.click(checkbox)
-  expect(colorButton).not.toBeEnabled()
+  expect(colorButton).toBeDisabled()
 
   fireEvent.click(checkbox)
   expect(colorButton).toBeEnabled()
